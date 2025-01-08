@@ -125,10 +125,13 @@ clearCanvas.addEventListener("click", ()=>{
 
 saveImg.addEventListener("click", ()=>{
    const link = document.createElement("a");
-   link.download = `${(Date.now)}.jpg`;
+   const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleString(); 
+    console.log(formattedDate);
+   link.download = `${(formattedDate+"-SuryaDraw")}.jpg`;
    link.href = canvas.toDataURL();
    link.click();
-})
+});
 
 canvas.addEventListener("mousedown",startDraw);
 canvas.addEventListener("mousemove",drawing);
